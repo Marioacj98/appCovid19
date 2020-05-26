@@ -1,0 +1,136 @@
+<div class="row">
+  <div class="col-xxl-5">
+    <div class="row">
+      <div class="col-md-12">
+        <nb-card>
+          <nb-card-header><h4>Doctores</h4></nb-card-header>
+          <nb-card-body>
+           Agrega, modifica o elimina los doctores asociados a tu hospital.
+          </nb-card-body>
+        </nb-card>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="hospital_id" class="control-label col-sm-2">
+            Hospital ID
+          </label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="hospital_id"
+            name="hospital_id" [(ngModel)]="model.hospital_id"
+            placeholder="Digita el ID del hospital del doctor">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="nombre" class="control-label col-sm-2">
+            Nombre
+          </label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="nombre"
+            name="nombre" [(ngModel)]="model.nombre"
+            placeholder="Digita el nombre del doctor">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="direccion" class="control-label col-sm-2">
+            Dirección
+          </label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="direccion"
+            name="direccion" [(ngModel)]="model.direccion"
+            placeholder="Digita la dirección del doctor">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="telefono" class="control-label col-sm-2">
+            Teléfono
+          </label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="telefono"
+            name="telefono" [(ngModel)]="model.telefono"
+            placeholder="Digita el teléfono del doctor">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sangre" class="control-label col-sm-2">
+            Sangre
+          </label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="sangre"
+            name="sangre" [(ngModel)]="model.sangre"
+            placeholder="Digita el tipo de sangre del doctor">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="experiencia" class="control-label col-sm-2">
+            Experiencia
+          </label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="experiencia"
+            name="experiencia" [(ngModel)]="model.experiencia"
+            placeholder="Digita la experiencia del doctor">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="nacimiento" class="control-label col-sm-2">
+            Nacimiento
+          </label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="nacimiento"
+            name="nacimiento" [(ngModel)]="model.nacimiento"
+            placeholder="Digita el nacimiento del doctor">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button type="button" class="btn btn-success" (click)="agregarDoctores()">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <h5>Datos de los doctores</h5>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Sangre</th>
+            <th>Experiencia</th>
+            <th>Nacimiento</th>
+            <th>Hospital ID</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctor of doctores; let i=index" >
+            <td>{{doctor.id}} </td>
+            <td>{{doctor.nombre}} </td>
+            <td>{{doctor.direccion}} </td>
+            <td>{{doctor.telefono}} </td>
+            <td>{{doctor.sangre}} </td>
+            <td>{{doctor.experiencia}} </td>
+            <td>{{doctor.nacimiento}} </td>
+            <td>{{doctor.hospital_id}} </td>
+            <td> <a class="btn btn-success">
+              Editar
+            </a>
+            <a (click)="borrarDoctores(doctor)" class="btn btn-danger">
+              Borrar
+            </a>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>

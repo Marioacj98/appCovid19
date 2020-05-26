@@ -1,0 +1,123 @@
+<div class="row">
+  <div class="col-xxl-5">
+    <div class="row">
+      <div class="col-md-12">
+        <nb-card>
+          <nb-card-header><h4>Pacientes</h4></nb-card-header>
+          <nb-card-body>
+           Agrega, modifica o elimina los pacientes
+          </nb-card-body>
+        </nb-card>
+      </div>
+  </div>
+
+<div class="row">
+  <div class="col-md-8">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="hospital_id" class="control-label col-sm-2">
+          Nombre
+        </label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="hospital_id"
+          name="hospital_id" [(ngModel)]="model.nombre"
+          placeholder="Digita el nombre del paciente">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nombre" class="control-label col-sm-2">
+          Eps
+        </label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="nombre"
+          name="nombre" [(ngModel)]="model.eps"
+          placeholder="Digita el nombre de la eps">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="direccion" class="control-label col-sm-2">
+          Dirección
+        </label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="direccion"
+          name="direccion" [(ngModel)]="model.direccion"
+          placeholder="Digita la dirección del paciente">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="telefono" class="control-label col-sm-2">
+          Acompañante
+        </label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="telefono"
+          name="telefono" [(ngModel)]="model.acompanante"
+          placeholder="Digita el nombre del acompañante">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sangre" class="control-label col-sm-2">
+          Telefono del acompañante
+        </label>
+        <div class="col-md-10">
+          <input type="number" class="form-control" id="sangre"
+          name="sangre" [(ngModel)]="model.telacompanante"
+          placeholder="Digita el telefono del acompañante">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="experiencia" class="control-label col-sm-2">
+          Antecedentes
+        </label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="experiencia"
+          name="experiencia" [(ngModel)]="model.antecedentes"
+          placeholder="Digita los antecedentes del paciente">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+          <button type="button" class="btn btn-success" (click)="agregarPaciente()">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    <h5>Datos de los doctores</h5>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>EPS</th>
+          <th>dIRECCIÓN</th>
+          <th>Acompañante</th>
+          <th>Telefono acompañante</th>
+          <th>Antecedentes</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paciente of pacientes; let i=index" >
+          <td>{{paciente.id}} </td>
+          <td>{{paciente.nombre}} </td>
+          <td>{{paciente.eps}} </td>
+          <td>{{paciente.direccion}} </td>
+          <td>{{paciente.acompanante}} </td>
+          <td>{{paciente.telacompanante}} </td>
+          <td>{{paciente.antecedentes}} </td>
+          <td> <a class="btn btn-success">
+            Editar
+          </a>
+          <a (click)="borrarPaciente(paciente)" class="btn btn-danger">
+            Borrar
+          </a>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

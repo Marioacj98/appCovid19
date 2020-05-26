@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-xxl-5">
+    <div class="row">
+      <div class="col-md-12">
+        <nb-card>
+          <nb-card-header><h4>Triage</h4></nb-card-header>
+          <nb-card-body>
+           Agrega, modifica o elimina un triage
+          </nb-card-body>
+        </nb-card>
+      </div>
+  </div>
+
+<div class="row">
+  <div class="col-md-8">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="hospital_id" class="control-label col-sm-2">
+          Doctor ID
+        </label>
+        <div class="col-md-10">
+          <input type="number" class="form-control" id="hospital_id"
+          name="hospital_id" [(ngModel)]="model.doctorid"
+          placeholder="Digita el ID del doctor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nombre" class="control-label col-sm-2">
+          Paciente ID
+        </label>
+        <div class="col-md-10">
+          <input type="number" class="form-control" id="nombre"
+          name="nombre" [(ngModel)]="model.pacienteid"
+          placeholder="Digita el ID del paciente">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="direccion" class="control-label col-sm-2">
+          Diagnostico
+        </label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="direccion"
+          name="direccion" [(ngModel)]="model.diagnostico"
+          placeholder="Digita el diagnostico del paciente">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="telefono" class="control-label col-sm-2">
+          Toma
+        </label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="telefono"
+          name="telefono" [(ngModel)]="model.toma"
+          placeholder="Toma medicamentos?">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sangre" class="control-label col-sm-2">
+          Medicamentos
+        </label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="sangre"
+          name="sangre" [(ngModel)]="model.medicamentos"
+          placeholder="Digita el/los nombres de los medicamentos">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+          <button type="button" class="btn btn-success" (click)="agregarTriage()">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    <h5>Datos de los doctores</h5>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>ID DOCTOR</th>
+          <th>ID PACIENTE</th>
+          <th>MOTIVOS</th>
+          <th>DIAGNÓSTICO</th>
+          <th>TOMA MEDICNA</th>
+          <th>MEDICAMENTOS</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let triage of triages; let i=index" >
+          <td>{{triage.id}} </td>
+          <td>{{triage.doctorid}} </td>
+          <td>{{triage.pacienteid}} </td>
+          <td>{{triage.motivos}} </td>
+          <td>{{triage.diagnostico}} </td>
+          <td>{{triage.toma}} </td>
+          <td>{{triage.medicamentos}} </td>
+          <td> <a class="btn btn-success">
+            Editar
+          </a>
+          <a (click)="borrarTriage(triage)" class="btn btn-danger">
+            Borrar
+          </a>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
